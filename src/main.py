@@ -2,6 +2,7 @@ from dash import Dash, dcc, html
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 from app import app
+import pages
 
 navbar = dbc.NavbarSimple(
   children=[
@@ -28,13 +29,9 @@ app.layout = html.Div([
 )
 def display_page(pathname):
   if pathname == '/ceo':
-    #from ceo import layout as ceo_layout
-    #return ceo_layout
-    return html.H3("Página CEO - Conteúdo vai aqui")
+    return pages.ceo.layout
   elif pathname == '/cfo':
-    #from cfo import layout as cfo_layout
-    #return cfo_layout
-    return html.H3("Página CFO - Conteúdo vai aqui")
+    return pages.cfo.layout
   else:
     return html.H3("Página Inicial - Conteúdo vai aqui")
 
