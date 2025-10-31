@@ -27,21 +27,41 @@ Dashboard Interativo desenvolvido para empresa PicMoney, voltado ao público C-L
 -Raiz<br>
 |<br>
 |-->documentos<br>
-  &emsp;|-->antigos<br>
-  &emsp;|Documentação.docx<br>
-|-->executáveis<br>
-  &emsp;|-->windows<br>
-  &emsp;|-->android<br>
-  &emsp;|-->HTML<br>
+  &emsp;|-->Entrega 1<br>
+  &emsp;&emsp;|-->Análise Inferencial de Dados<br>
+  &emsp;&emsp;|-->Contabilidade e Finanças<br>
+  &emsp;&emsp;|-->Engenharia de Software e Arquitetura de Sistemas<br>
+  &emsp;&emsp;|-->Projeto Interdisciplinar - Ciência de Dados<br>
+  &emsp;|-->Entrega 2<br>
+  &emsp;&emsp;|-->Análise Inferencial de Dados<br>
+  &emsp;&emsp;|-->Contabilidade e Finanças<br>
+  &emsp;&emsp;|-->Engenharia de Software e Arquitetura de Sistemas<br>
+  &emsp;&emsp;|-->Projeto Interdisciplinar - Ciência de Dados<br>
+  &emsp;|Documento - Projeto de Extensão - COM Empresa.docx<br>
+  &emsp;|Documento - Projeto de Extensão - COM Empresa.pdf<br>
 |-->imagens<br>
 |-->src<br>
-  &emsp;|-->Backend<br>
-  &emsp;|-->Frontend<br>
+  &emsp;|-->.venv<br>
+  &emsp;|-->components<br>
+  &emsp;&emsp;|-->botao_relatorio_ceo.py<br>
+  &emsp;&emsp;|-->botao_relatorio_cfo.py<br>
+  &emsp;|-->data<br>
+  &emsp;&emsp;|-->base_players.csv<br>
+  &emsp;&emsp;|-->lojas_valores.csv<br>
+  &emsp;&emsp;|-->pedestres_paulista.csv<br>
+  &emsp;&emsp;|-->transacoes_cupons.csv<br>
+  &emsp;|-->pages<br>
+  &emsp;&emsp;|-->ceo.py<br>
+  &emsp;&emsp;|-->cfo.py<br>
+  &emsp;|-->utils<br>
+  &emsp;&emsp;|-->db_utils.py<br>
+  &emsp;&emsp;|-->graphs.py<br>
+  &emsp;|-->app.py<br>
+  &emsp;|-->main.py<br>
+  &emsp;|-->requirements.txt<br>
 |readme.md<br>
 
 <b>documentos</b>: Toda a documentação estará nesta pasta.
-
-<b>executáveis</b>: Binários e executáveis do projeto devem estar nesta pasta.
 
 <b>imagens</b>: Imagens do sistema
 
@@ -49,16 +69,27 @@ Dashboard Interativo desenvolvido para empresa PicMoney, voltado ao público C-L
 
 ## 🛠 Instalação
 
-<b>Android:</b>
-
-<b>Windows:</b>
-
-<b>HTML:</b>
+<b>Windows:</b> Faça o download do código do repositório e siga as instruções abaixo
 
 ## 💻 Configuração para Desenvolvimento
 
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
-
+1. Baixe o código do repositório
+2. Abra a pasta "src" na sua IDE de preferência (VS Code, Cursor, etc)
+3. Abra o terminal (Command Prompt)
+4. Certifique que o caminho (PATH) esteja correto (terminando em \src)
+5. Rode os comandos abaixo, em ordem:
+   ```
+   python -m venv .venv (.venv pode ser trocado por qualquer nome)
+   ```
+   ```
+   .\.venv\Scripts\activate.bat (se tiver colocado outro nome no lugar de .venv, deve seguir o nome criado)
+   ```
+   ```
+   pip install -r requirements.txt
+   ```
+   ```
+   python main.py
+   ```
 
 
 ## 📋 Licença/License
