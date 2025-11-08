@@ -1,26 +1,46 @@
-from dash import dcc, html
-import dash_bootstrap_components as dbc
-from dash.dependencies import Input, Output, State
-from app import app
-from utils.graphs import (
-    criar_grafico_receita_segmento, criar_grafico_scatter,
-    criar_grafico_ticket_medio, criar_grafico_distribuicao
-)
-from utils.db_utils import df_massa, df_trans
-import pandas as pd
-#from components.botao_relatorio import gerar_layout_botao
-from components.botao_relatorio_cfo import gerar_layout_botao_cfo
+# =============================================================================
+# DASHBOARD CFO - VISÃO FINANCEIRA DO NEGÓCIO
+# =============================================================================
 
-# Definir cores do tema
+# Importação das bibliotecas e componentes necessários
+from dash import dcc, html  # Componentes core do Dash
+import dash_bootstrap_components as dbc  # Componentes Bootstrap
+from dash.dependencies import Input, Output, State  # Para callbacks interativos
+from app import app  # Instância principal da aplicação
+
+# Importação das funções especializadas para gráficos financeiros
+from utils.graphs import (
+    criar_grafico_receita_segmento,  # Análise de receita por segmento
+    criar_grafico_scatter,           # Gráfico de dispersão para análises correlacionais
+    criar_grafico_ticket_medio,      # Análise de ticket médio
+    criar_grafico_distribuicao       # Distribuição de valores
+)
+
+# Importação dos dados financeiros processados
+from utils.db_utils import df_massa, df_trans  # Dataframes de transações e valores
+import pandas as pd  # Para manipulação adicional de dados
+
+# Importação do componente de geração de relatórios
+from components.botao_relatorio_cfo import gerar_layout_botao_cfo  # Botão específico para relatórios do CFO
+
+# =============================================================================
+# CONFIGURAÇÕES VISUAIS E PREPARAÇÃO DOS DADOS
+# =============================================================================
+
+# Definição do esquema de cores para indicadores financeiros
 COLORS = {
-    'primary': '#351D5A',
-    'success': '#28a745',
-    'danger': '#dc3545',
-    'warning': '#ffc107',
-    'info': '#17a2b8'
+    'primary': '#351D5A',  # Cor principal da marca
+    'success': '#28a745',  # Verde para indicadores positivos (lucro, crescimento)
+    'danger': '#dc3545',   # Vermelho para indicadores negativos (prejuízo, queda)
+    'warning': '#ffc107',  # Amarelo para alertas e atenção
+    'info': '#17a2b8'      # Azul para informações complementares
 }
 
-# Garantir que as datas estão no formato correto
+# Preparação e normalização dos dados temporais
+# Convertemos as datas para o formato datetime do pandas para permitir:
+# - Cálculos temporais (períodos, durações)
+# - Agrupamentos por período
+# - Análises de tendências
 df_trans['data'] = pd.to_datetime(df_trans['data'], format='%d/%m/%Y')
 df_massa['data_captura'] = pd.to_datetime(df_massa['data_captura'], format='%d/%m/%Y')
 

@@ -1,32 +1,60 @@
-# Preprocessamento — carregar e normalizar os 4 CSVs (executar uma vez)
-import pandas as pd
-import numpy as np
+# =============================================================================
+# MÓDULO DE UTILIDADES PARA PROCESSAMENTO DE DADOS
+# =============================================================================
 
-# caminhos (use os nomes exatos dos seus arquivos)
-path_massa = "data/lojas_valores.csv"
-path_pedestres = "data/pedestres_paulista.csv"
-path_trans = "data/transacoes_cupons.csv"
-path_players = "data/base_players.csv"
+# Importação das bibliotecas necessárias
+import pandas as pd  # Para manipulação de dados tabulares
+import numpy as np   # Para operações numéricas e valores ausentes
 
-# leitura (motor python para inferir separador)
+# Definição dos caminhos dos arquivos CSV
+# Cada arquivo contém um conjunto específico de dados do sistema
+path_massa = "data/lojas_valores.csv"        # Dados das lojas e valores
+path_pedestres = "data/pedestres_paulista.csv"  # Dados de fluxo de pedestres
+path_trans = "data/transacoes_cupons.csv"    # Dados de transações de cupons
+path_players = "data/base_players.csv"       # Dados dos usuários do sistema
+
+# Carregamento dos arquivos CSV
+# Utilizamos parâmetros flexíveis para garantir a leitura correta:
+# - sep=None: Detecta automaticamente o separador
+# - engine="python": Usa o engine mais flexível do pandas
+# - encoding="utf-8": Garante suporte a caracteres especiais
+# - on_bad_lines='skip': Ignora linhas com problemas de formatação
 df_massa = pd.read_csv(path_massa, sep=None, engine="python", encoding="utf-8", on_bad_lines='skip')
 df_pedestres = pd.read_csv(path_pedestres, sep=None, engine="python", encoding="utf-8", on_bad_lines='skip')
 df_trans = pd.read_csv(path_trans, sep=None, engine="python", encoding="utf-8", on_bad_lines='skip')
 df_players = pd.read_csv(path_players, sep=None, engine="python", encoding="utf-8", on_bad_lines='skip')
 
-# Normalizar celular: remover caracteres não numéricos (para unir datasets)
+# =============================================================================
+# FUNÇÕES DE NORMALIZAÇÃO DE DADOS
+# =============================================================================
+
 def norm_cel(s):
-    if pd.isna(s): return s
+    """
+    Normaliza números de celular removendo caracteres não numéricos.
+    
+    Args:
+        s: String contendo o número de celular
+        
+    Returns:
+        String contendo apenas os dígitos do número
+    """
+    if pd.isna(s): return s  # Retorna como está se for valor ausente
     return ''.join(ch for ch in str(s) if ch.isdigit())
 
+# Padronização dos números de celular em todos os datasets
+# Isso é necessário para permitir o cruzamento correto dos dados entre as tabelas
 for df in [df_massa, df_pedestres, df_trans, df_players]:
-    # colunas podem ter nomes diferentes, harmonizo onde necessário
+    # Alguns datasets usam 'numero_celular', outros usam 'celular'
+    # Padronizamos para usar sempre 'celular'
     if "numero_celular" in df.columns:
         df["celular"] = df["numero_celular"].astype(str).apply(norm_cel)
     if "celular" in df.columns:
         df["celular"] = df["celular"].astype(str).apply(norm_cel)
 
-# Datas/hora: padronizar
+# Padronização dos campos de data
+# Convertemos todas as datas para o formato datetime do pandas
+# - dayfirst=True: Assume formato brasileiro (dia/mês/ano)
+# - errors="coerce": Converte valores inválidos para NaT (Not a Time)
 if "data_captura" in df_massa.columns:
     df_massa["data_captura"] = pd.to_datetime(df_massa["data_captura"], dayfirst=True, errors="coerce")
 if "data" in df_pedestres.columns:

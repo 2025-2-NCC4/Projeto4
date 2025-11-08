@@ -1,18 +1,28 @@
-from dash import dcc, html
-import dash_bootstrap_components as dbc
-from dash.dependencies import Input, Output, State
-from app import app
+# =============================================================================
+# DASHBOARD CEO - VISÃO ESTRATÉGICA DO NEGÓCIO
+# =============================================================================
+
+# Importação das bibliotecas necessárias
+from dash import dcc, html  # Componentes base do Dash
+import dash_bootstrap_components as dbc  # Componentes estilizados Bootstrap
+from dash.dependencies import Input, Output, State  # Para callbacks
+from app import app  # Instância principal da aplicação
+# Importação das funções de geração de gráficos
 from utils.graphs import (
-    criar_grafico_resgates_segmento, criar_grafico_dia_semana,
-    criar_grafico_heatmap, criar_grafico_faixa_etaria,
-    criar_grafico_segmento_tipo, criar_grafico_dispositivos
+    criar_grafico_resgates_segmento,  # Gráfico de resgates por segmento
+    criar_grafico_dia_semana,         # Gráfico de atividade por dia da semana
+    criar_grafico_heatmap,            # Heatmap de atividade
+    criar_grafico_faixa_etaria,       # Distribuição por faixa etária
+    criar_grafico_segmento_tipo,      # Análise por tipo de segmento
+    criar_grafico_dispositivos        # Uso por tipo de dispositivo
 )
+# Importação dos dataframes processados
 from utils.db_utils import df_trans, df_players, df_pedestres
 import pandas as pd
-#from components.botao_relatorio import gerar_layout_botao
 from components.botao_relatorio_ceo import gerar_layout_botao_ceo
 
-# Extrair valores únicos para os filtros
+# Preparação dos dados para filtros interativos
+# Extraímos valores únicos e ordenamos para garantir consistência na interface
 categorias = sorted(df_trans['categoria_estabelecimento'].dropna().unique())
 tipos_cupom = sorted(df_trans['tipo_cupom'].dropna().unique())
 bairros = sorted(df_trans['bairro_estabelecimento'].dropna().unique())
