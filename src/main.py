@@ -2,7 +2,7 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import Input, Output, State, dcc, html
 from app import app
-from pages import ceo, cfo
+from pages import ceo, cfo, projections
 import pandas as pd
 from utils.db_utils import df_trans
 
@@ -62,6 +62,7 @@ nav_items = html.Div([
         create_nav_item("Dashboard Geral", "/", "home"),
         create_nav_item("Visão CEO", "/ceo", "user-tie"),
         create_nav_item("Visão CFO", "/cfo", "hand-holding-usd"),
+        create_nav_item("Projeções", "/projections", "chart-line"),
     ], vertical=True, pills=True),
 ], style={'marginBottom': '30px'})
 
@@ -217,7 +218,7 @@ def render_page_content(pathname):
                             dbc.Button("Acessar", href="/ceo", color="primary", className="w-100")
                         ])
                     ], className="text-center shadow-sm h-100")
-                ], xs=12, md=6),
+                ], xs=12, md=4),
                 dbc.Col([
                     dbc.Card([
                         dbc.CardBody([
@@ -227,13 +228,25 @@ def render_page_content(pathname):
                             dbc.Button("Acessar", href="/cfo", color="success", className="w-100")
                         ])
                     ], className="text-center shadow-sm h-100")
-                ], xs=12, md=6),
+                ], xs=12, md=4),
+                dbc.Col([
+                    dbc.Card([
+                        dbc.CardBody([
+                            html.I(className="fas fa-chart-line fa-3x mb-3", style={'color': COLORS['accent']}),
+                            html.H4("Projeções"),
+                            html.P("Simule cenários futuros financeiros e operacionais dentro da empresa"),
+                            dbc.Button("Acessar", href="/projections", color="primary", className="w-100", style={'backgroundColor': COLORS['accent'], 'borderColor': COLORS['accent']})
+                        ])
+                    ], className="text-center shadow-sm h-100")
+                ], xs=12, md=4),
             ], className="mt-4"),
         ])
     elif pathname == "/ceo":
         return ceo.layout
     elif pathname == "/cfo":
         return cfo.layout
+    elif pathname == "/projections":
+        return projections.layout
     return html.Div([
         html.H1("404: Página não encontrada", className="text-danger"),
         html.P(f"O caminho '{pathname}' não foi reconhecido."),
