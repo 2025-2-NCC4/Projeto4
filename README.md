@@ -14,9 +14,8 @@
 
 ## Descrição
 
-<p align="center">
-<img src="">
-  Projeto por <a href="https://www.linkedin.com/in/lucasoliveira198/">Lucas Oliveira da Silva</a>, <a href="https://www.linkedin.com/in/matheus-rossaneze-911b191b4/">Matheus Rossaneze</a>, <a href="https://www.linkedin.com/in/pedro-schaurich-maia/">Pedro Schaurich Maia</a>, <a href="https://www.linkedin.com/in/phelipe-antonio-de-souza-6271b8321/">Phelipe Antonio</a>
+<p align="center"><a href='https://postimg.cc/rdRq4DRf' target='_blank'><img src='https://i.postimg.cc/QM0CR58Z/Gemini-Generated-Image-wuzjz3wuzjz3wuzj.png' border='0' alt='Gemini-Generated-Image-wuzjz3wuzjz3wuzj'></a>
+<p align="center">Projeto por <a href="https://www.linkedin.com/in/lucasoliveira198/">Lucas Oliveira da Silva</a>, <a href="https://www.linkedin.com/in/matheus-rossaneze-911b191b4/">Matheus Rossaneze</a>, <a href="https://www.linkedin.com/in/pedro-schaurich-maia/">Pedro Schaurich Maia</a>, <a href="https://www.linkedin.com/in/phelipe-antonio-de-souza-6271b8321/">Phelipe Antonio</a>
 <br><br>
 
 Dashboard Interativo desenvolvido para empresa PicMoney, voltado ao público C-Level  (CEOs, CFOs, CTOs), capaz de mostrar dados estratégicos, operacionais e financeiros de forma estratégica e intuitiva, permitir a exploração de dados em tempo real e com foco na usabilidade
@@ -93,7 +92,7 @@ Dashboard Interativo desenvolvido para empresa PicMoney, voltado ao público C-L
 
 
 ## 📋 Licença/License
-This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+<a href="https://github.com/2025-2-NCC4/Projeto4">Dashboard PI</a> © 2025 by <a href="https://github.com/2025-2-NCC4/Projeto4">Barões do Cupom</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
 
 ## 🎓 Referências
 
@@ -104,3 +103,14 @@ Aqui estão as referências usadas no projeto.
 3. <https://chooser-beta.creativecommons.org/>
 4. <https://freesound.org/>
 5. <https://www.toptal.com/developers/gitignore>
+6. <https://github.com/fecaphub/Template_PI>
+7. <https://www.drawio.com/>
+8. <https://docs.python.org/3/>
+9. <https://dash.plotly.com/>
+10. <https://plotly.com/cloud/>
+11. <https://plotly.com/python/>
+12. <https://pandas.pydata.org/docs/>
+13. <https://docs.reportlab.com/>
+14. <https://www.youtube.com/playlist?list=PLYD54mj9I2JevdabetHsJ3RLCeMyBNKYV>
+15. <https://www.youtube.com/watch?v=ArnxeE1NuMM&t=1900s>
+16. <https://www.youtube.com/watch?v=XOFrvzWFM7Y&t=249s>
