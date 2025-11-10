@@ -52,6 +52,7 @@ Dashboard Interativo desenvolvido para empresa PicMoney, voltado ao público C-L
   &emsp;|-->pages<br>
   &emsp;&emsp;|-->ceo.py<br>
   &emsp;&emsp;|-->cfo.py<br>
+  &emsp;&emsp;|-->projections.py<br>
   &emsp;|-->utils<br>
   &emsp;&emsp;|-->db_utils.py<br>
   &emsp;&emsp;|-->graphs.py<br>
