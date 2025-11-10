@@ -73,15 +73,15 @@ Dashboard Interativo desenvolvido para empresa PicMoney, voltado ao público C-L
 ## 💻 Configuração para Desenvolvimento
 
 1. Baixe o código do repositório
-2. Abra a pasta "src" na sua IDE de preferência (VS Code, Cursor, etc)
+2. Abra a pasta "src" na sua IDE de preferência (VS Code, Cursor, etc.)
 3. Abra o terminal (Command Prompt)
-4. Certifique que o caminho (PATH) esteja correto (terminando em \src)
+4. Certifique que o caminho (PATH) esteja correto (terminando em \src, provavelmente algo como "User\(seu usuário)\Downloads\Projeto4-main\src")
 5. Rode os comandos abaixo, em ordem:
    ```
-   python -m venv .venv (.venv pode ser trocado por qualquer nome)
+   python -m venv .venv 
    ```
    ```
-   .\.venv\Scripts\activate.bat (se tiver colocado outro nome no lugar de .venv, deve seguir o nome criado)
+   .\.venv\Scripts\activate.bat
    ```
    ```
    pip install -r requirements.txt
